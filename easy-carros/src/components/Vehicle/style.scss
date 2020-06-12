@@ -38,10 +38,18 @@ $primary-color: #3ec4e3 !important;
 			transition: 500ms all ease;
 			font-size: 24px;
 			cursor: pointer;
+			color: red;
+			border-radius: 100px;
 
 			&:hover{
-				color: red;
+				animation: explode 1s infinite
 			}
 		}
 	}
+}
+
+@keyframes explode {
+  0% { box-shadow: 0 0 0 0 rgba(red, 1);}
+  70% { box-shadow: 0 0 0 5px rgba(red, 0);}
+  100% { box-shadow: 0 0 0 0 rgba(red, 0);}
 }
