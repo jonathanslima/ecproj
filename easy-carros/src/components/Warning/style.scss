@@ -1,0 +1,13 @@
+.warning-msg{
+	height: 0;
+	overflow: hidden;
+	padding: 0 !important;
+	transition: 250ms all ease;
+
+}
+
+.warning-msg-show{
+	transition: 250ms all ease;
+  height: auto;
+  padding: .5rem !important;
+}

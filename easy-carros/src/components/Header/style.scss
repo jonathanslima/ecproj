@@ -1,0 +1,31 @@
+$primary-color: #3ec4e3 !important;
+$link-color: #00CDE4;
+$title-color: #797979;
+
+.header{
+	nav{
+		background-color: $primary-color;
+		
+		.navbar-toggler{
+			border: 1px solid #fff;
+		}
+	}
+}
+
+.submenu{
+	a{
+		padding: 10px 15px;
+		display: inline-block;
+		text-decoration: none;
+		color: $link-color;
+		transition: 500ms all ease;
+
+		&:hover{
+			color: $title-color;
+		}
+
+		svg{
+			margin-right: 5px;
+		}
+	}
+}

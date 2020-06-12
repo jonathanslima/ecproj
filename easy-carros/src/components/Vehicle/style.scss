@@ -1,0 +1,47 @@
+$primary-color: #3ec4e3 !important;
+
+.add-vehicle,
+.list-vehicle{
+	.title{
+		font-size: .8rem;
+		font-weight: 700;
+	}
+}
+
+.add-vehicle{
+	margin-top: 120px;
+	margin-bottom: 50px;
+	border-bottom: 1px solid #dedede;
+	padding-bottom: 30px;
+
+	.car-license-plate{
+
+		.plate{
+			padding: 25px 10px;
+			border: 1px solid $primary-color;
+		}
+
+		.btn{
+			background-color: $primary-color;
+			color: #fff;
+		}
+	}
+}
+
+.list-vehicle{
+	.list-group-item{
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		
+		svg{
+			transition: 500ms all ease;
+			font-size: 24px;
+			cursor: pointer;
+
+			&:hover{
+				color: red;
+			}
+		}
+	}
+}
