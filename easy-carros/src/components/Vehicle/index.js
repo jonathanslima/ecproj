@@ -22,7 +22,7 @@ function Vehicle() {
 						</div>
 					</section>
 
-					<section className="col xs-12 list-vehicle">
+					<section className="col-sm-12 col-md-6 offset-md-3 list-vehicle">
 						<header>
 							<h2 className="title">Veículos</h2>
 						</header>
@@ -31,8 +31,6 @@ function Vehicle() {
 							<li className="list-group-item"> <span>Cras justo odio</span> <MdCancel /> </li>
 							<li className="list-group-item"> <span>Dapibus ac facilisis in</span> <MdCancel /> </li>
 							<li className="list-group-item"> <span>Morbi leo risus</span> <MdCancel /> </li>
-							<li className="list-group-item"> <span>Porta ac consectetur ac</span> <MdCancel /> </li>
-							<li className="list-group-item"> <span>Vestibulum at eros</span> <MdCancel /> </li>
 						</ul>
 					</section>
 				</div>
