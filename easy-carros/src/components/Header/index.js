@@ -1,11 +1,12 @@
 import React, {useState} from "react";
 import { MdExitToApp } from 'react-icons/md';
-import { Link } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 
 import './style.scss';
 
 function Header() {
-	const [stateMenu, setStateMenu] = useState();
+  const [stateMenu, setStateMenu] = useState();
+  const [token, setToken] = useState(true)
 	
 	function toggleMenu(){
 		const submenu = document.querySelector(".submenu").classList;
@@ -17,12 +18,19 @@ function Header() {
 		}else{
 			submenu.remove("d-none")
 			setStateMenu('open')
-			
 		}
-	}
+  }
+  
+  function logout(){
+    sessionStorage.setItem('token', '');
+    setToken(false)
+  }
 
   return (
     <header className="fixed-top header">
+      {
+        token ? null : <Redirect to="/" />
+      }
       <nav className="navbar navbar-dark bg-dark">
         <button
 					id="menu"
@@ -41,7 +49,7 @@ function Header() {
 				<h2 className="text-white">Veículos</h2>
       </nav>
 			<ul className="list-unstyled submenu d-none">
-				<li><Link to="/"><MdExitToApp />Logout</Link></li>
+				<li><span onClick={logout}><MdExitToApp />Logout</span></li>
 			</ul>
     </header>
   );

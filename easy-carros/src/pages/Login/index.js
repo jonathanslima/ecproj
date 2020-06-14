@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-
+import api from '../../../src/services/api';
+import {Redirect} from 'react-router-dom';
 // Components
 import Warning from "../../components/Warning";
 
@@ -14,23 +15,36 @@ const Login = () => {
   const [pass, setPassword] = useState("");
 	const [message, setMessage] = useState("");
 	const [valid, setValid] = useState(null);
+  const [redir, setRedirect] = useState(false);
 
   function access(e) {
     e.preventDefault();
     if (email === "" || pass === "") {
       warningMsg('appear');
-			setMessage("All fields are required");
+			setMessage("Todos os campos são necessários");
 			
       return false;
 		}
 		
 		if(valid){
-			if(email === "frontend-dev@easycarros.com" && pass === "Fr0nt3ndR0ck5!"){
-				console.log(valid)
-				console.log('pode logar')
-				// api call here
-				
-			}
+      document.querySelector('.login .spinner-border').classList.add('d-inline-block')
+      // api call here
+      api.post('/auth', {
+        "email": email,
+        "password": pass
+      })
+        .then(res => {
+          document.querySelector('.login .spinner-border').classList.remove('d-inline-block');
+          sessionStorage.setItem('token', res.data.data.token)
+          setRedirect(true)
+        })
+        .catch(e => {
+          setTimeout(() => {
+            warningMsg('appear');
+  			    setMessage("Email e/ou senha estão incorretos");
+            document.querySelector('.login .spinner-border').classList.remove('d-inline-block');
+          }, 1500);
+        })
 		}
 		
   }
@@ -65,6 +79,9 @@ const Login = () => {
 
   return (
     <div className="container-fluid">
+      {
+        redir === true ? <Redirect to="/vehicles" /> : null
+      }
       <div className="row">
         <section
           className="login d-flex justify-content-center align-items-center flex-column"
@@ -91,7 +108,7 @@ const Login = () => {
               <input
                 onKeyUp={validateInputs}
                 autoComplete="new-password"
-                type="text"
+                type="password"
                 className="text-white form-control password"
                 id="password"
                 placeholder="Password"
@@ -104,7 +121,7 @@ const Login = () => {
               className="btn btn-outline-light btn-login"
             >
               Login
-              <div className="spinner-border text-light" role="status">
+              <div className="spinner-border" role="status">
                 <span className="sr-only">Loading...</span>
               </div>
             </button>

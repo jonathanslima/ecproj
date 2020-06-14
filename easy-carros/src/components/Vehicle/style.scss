@@ -1,4 +1,12 @@
 $primary-color: #3ec4e3 !important;
+$secondary-color: #797979;
+
+.no-plate{
+	border: 1px dotted $secondary-color !important;
+	color: $secondary-color;
+	font-size: .8rem;
+	justify-content: center;
+}
 
 .add-vehicle,
 .list-vehicle{

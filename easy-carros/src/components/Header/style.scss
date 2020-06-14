@@ -13,12 +13,13 @@ $title-color: #797979;
 }
 
 .submenu{
-	a{
+	span{
 		padding: 10px 15px;
 		display: inline-block;
 		text-decoration: none;
 		color: $link-color;
 		transition: 500ms all ease;
+		cursor: pointer;
 
 		&:hover{
 			color: $title-color;
