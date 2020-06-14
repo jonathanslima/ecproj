@@ -12,4 +12,4 @@ Teste para uma posição como desenvolvedor Front End na Easy Carros.
 
 `yarn start`
 
-Acessar (http://localhost:3000/){http://localhost:3000/} para ver a aplicação
+Acessar [http://localhost:3000/](http://localhost:3000/) para ver a aplicação
