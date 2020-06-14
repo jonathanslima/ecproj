@@ -84,7 +84,8 @@ function Vehicle() {
   return (
     <main>
       {
-        sessionStorage.getItem('token').length < 1 ? <Redirect to="/" /> : null
+        sessionStorage.getItem('token') == '' || sessionStorage.getItem('token') == null
+        ? <Redirect to="/" /> : null
       }
       <div className="container">
         <div className="row">
